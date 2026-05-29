@@ -150,7 +150,7 @@ def generate():
         # Short URL
         # -------------------------
 
-        short_url = f"http://192.168.0.110:5000/{code}"
+        short_url = f"https://qr-generator-aegv.onrender.com/{code}"
 
         short_link_var.set(short_url)
 
