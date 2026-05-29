@@ -3,3 +3,4 @@ waitress
 qrcode
 pillow
 customtkinter
+requests
