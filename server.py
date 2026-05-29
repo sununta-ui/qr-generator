@@ -4,15 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# -------------------------
-# DATABASE FILE
-# -------------------------
-
 DB_FILE = "links.json"
-
-# -------------------------
-# CREATE FILE
-# -------------------------
 
 if not os.path.exists(DB_FILE):
 
@@ -20,19 +12,11 @@ if not os.path.exists(DB_FILE):
 
         json.dump({}, f)
 
-# -------------------------
-# LOAD LINKS
-# -------------------------
-
 def load_links():
 
     with open(DB_FILE, "r") as f:
 
         return json.load(f)
-
-# -------------------------
-# REDIRECT
-# -------------------------
 
 @app.route("/<code>")
 
@@ -48,12 +32,15 @@ def short_link(code):
 
     return "Link not found"
 
-# -------------------------
-# RUN
-# -------------------------
+@app.route("/")
 
-app.run(
-    host="0.0.0.0",
-    port=5000,
-    debug=True
-)
+def home():
+
+    return "QR Generator Server Online"
+
+if __name__ == "__main__":
+
+    app.run(
+        host="0.0.0.0",
+        port=5000
+    )
